@@ -1,89 +1,101 @@
-# 📊 Análise de Aprovação de Crédito
+# Análise de Aprovação de Cartão de Crédito
 
-Projeto completo de análise de dados simulando um cenário real de decisão de crédito em instituições financeiras.
+## Sobre o projeto
 
----
+Este projeto tem como objetivo analisar os fatores associados à aprovação de solicitações de cartão de crédito e desenvolver modelos de classificação capazes de prever a aprovação com base nas características dos solicitantes.
 
-## 🎯 Objetivo
+O trabalho foi desenvolvido com Python, utilizando análise exploratória de dados, preparação de variáveis e algoritmos de aprendizado de máquina.
 
-Identificar os principais fatores que influenciam a aprovação de crédito, utilizando dados de clientes ficticios e comportamento financeiro.
+## Objetivos
 
----
+- Explorar o perfil dos solicitantes.
+- Investigar relações entre características financeiras e aprovação.
+- Preparar os dados para modelagem.
+- Treinar e comparar modelos de classificação.
+- Avaliar o desempenho dos modelos utilizando métricas apropriadas.
 
-## 🛠️ Tecnologias utilizadas
+## Estrutura do projeto
 
-- Python (Pandas)
-- SQL (PostgreSQL)
-- Power BI
-- Git & GitHub
-
----
-
-## 🔄 Pipeline de Dados
-
-1. Ingestão de dados (CSV)
-2. Limpeza e tratamento com Python
-3. Análise exploratória (EDA)
-4. Modelagem e consultas SQL
-5. Construção de dashboard no Power BI
-
----
-
-## 📊 Principais Análises
-
-- Taxa de aprovação de crédito
-- Renda média por status de aprovação
-- Score médio por perfil de cliente
-- Impacto da inadimplência na aprovação
-- Distribuição de idade dos clientes
-
----
-
-## 📈 Principais Insights
-
-- Clientes aprovados apresentam renda média significativamente maior
-- Score de crédito é o principal fator na decisão de aprovação
-- Observou-se um comportamento atípico na inadimplência, indicando possível inconsistência nos critérios de análise
-
----
-
-## 📊 Dashboard
-
-O dashboard apresenta uma visão executiva com:
-
-- Taxa de aprovação
-- Renda média
-- Score médio
-- Análise de risco por perfil
-<img width="1568" height="860" alt="image" src="https://github.com/user-attachments/assets/93d8375d-c446-4696-a15e-048e9431e928" />
-
-
----
-
-## 📁 Estrutura do Projeto
-
+```text
 credit-card-analysis/
 │
 ├── data/
+│   ├── raw/
+│   └── processed/
+│
 ├── notebooks/
+│   ├── 01_exploracao.ipynb
+│   ├── 02_limpeza_preparacao.ipynb
+│   └── 03_modelagem.ipynb
+│
+├── Dashboard/
 ├── sql/
-├── dashboard/
 ├── README.md
+└── requirements.txt
+```
 
+## Etapas desenvolvidas
 
----
+### 1. Análise exploratória
 
-## 🚀 Diferencial do Projeto
+- Análise da distribuição de aprovações e reprovações.
+- Investigação de variáveis financeiras e características dos solicitantes.
+- Identificação de padrões e possíveis relações com a aprovação.
 
-Este projeto simula um ambiente real de análise de dados, cobrindo:
+### 2. Limpeza e preparação
 
-- Pipeline completo de dados
-- Análise com SQL
-- Visualização
-- Interpretação de negócio
+- Verificação de valores ausentes e registros duplicados.
+- Análise de redundância entre variáveis.
+- Seleção de seis variáveis preditoras.
+- Separação da variável-alvo.
+- Preparação da base para modelagem.
 
----
+### 3. Modelagem preditiva
 
-## 🔗 Autor
+Foram utilizados dois algoritmos:
 
-Desenvolvido por Manuel  
+- Regressão Logística.
+- Árvore de Decisão.
+
+A divisão dos dados foi realizada em treinamento (80%) e teste (20%), utilizando estratificação da variável-alvo.
+
+## Resultados dos modelos
+
+| Métrica | Regressão Logística | Árvore de Decisão |
+|---|---:|---:|
+| Acurácia | 0.7852 | 0.7481 |
+| Precisão | 0.8261 | 0.7907 |
+| Recall | 0.6441 | 0.5763 |
+| F1-Score | 0.7238 | 0.6667 |
+| ROC-AUC | 0.8182 | 0.8015 |
+
+A Regressão Logística apresentou os melhores resultados nas cinco métricas avaliadas, demonstrando desempenho superior à Árvore de Decisão neste experimento.
+
+## Tecnologias utilizadas
+
+- Python
+- Pandas
+- NumPy
+- Matplotlib
+- Scikit-learn
+- Jupyter Notebook
+
+## Limitações e considerações
+
+- O conjunto de dados possui 672 registros, sendo relativamente pequeno.
+- Não há documentação completa para interpretar todos os códigos das variáveis categóricas.
+- Algumas variáveis foram excluídas por redundância, falta de documentação ou necessidade de cuidados relacionados à privacidade e à equidade.
+- Os resultados representam um experimento exploratório e não devem ser utilizados diretamente para decisões reais de concessão de crédito.
+- O desempenho foi avaliado em uma única divisão entre treinamento e teste.
+
+## Conclusão
+
+A análise permitiu identificar associações entre características financeiras dos solicitantes e a aprovação de crédito.
+
+Entre os modelos avaliados, a Regressão Logística apresentou melhor desempenho geral, alcançando acurácia de 78,52% e ROC-AUC de 0,8182.
+
+O projeto demonstra um fluxo completo de análise de dados, desde a exploração e preparação até a construção e avaliação de modelos preditivos.
+
+## Autor
+
+Projeto desenvolvido para fins de estudo e construção de portfólio em Ciência de Dados e Machine Learning.
