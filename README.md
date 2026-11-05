@@ -98,4 +98,5 @@ O projeto demonstra um fluxo completo de análise de dados, desde a exploração
 
 ## Autor
 
-Projeto desenvolvido para fins de estudo e construção de portfólio em Ciência de Dados e Machine Learning.
+Manuel Ntanfumu
+
